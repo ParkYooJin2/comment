@@ -19,6 +19,9 @@
   <div class ="btn">
     <a href="{% url 'comment_update' comment.pk %}
     ">수정</a>"
+    <a href="{% url 'comment_delete' comment.pk %}
+    ">삭제</a>"
+
   </div>
 </div>
 {% empty %}
