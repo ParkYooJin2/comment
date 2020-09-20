@@ -13,6 +13,12 @@
       <a href="{% url 'home' %}"><h1>HOME</h1></a>
       <a href="{% url 'create' %}"><h1>CREATE</h1></a>
       <img class="dslion" src="{% static 'likelionds.png' %}" alt="" />
+      <li class="nav-item" style="position:absolute; top: 10px; right: 100px;">
+        <a class="nav-link" href="{% url 'signup' %}">SignUp</a>
+      </li>
+        <li class="nav-item" style="position:absolute; top: 10px; right: 50px;">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+      </li>
     </header>
     <section>{% block content %} {% endblock %}</section>
     <footer>

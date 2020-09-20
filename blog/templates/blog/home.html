@@ -5,4 +5,12 @@
   <p>{{post.summary}}</p>
   <p class="date">{{post.date | date:"Y년 n월 j일 G시 i분" }}</p>
 </div>
+
+{% if request.user.is_authenticated %}
+<h1>환영합니다,{{ user.username }}님!</h1>
+<a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                    <form id="logout" method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %} <input type = "hidden" />
+                    </form>
+{%endif%}
 {% endfor %} {% endblock %}
