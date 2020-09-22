@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Blog, Comment
 from .forms import BlogForm, CommentForm
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
     blogs = Blog.objects
     return render(request, 'blog/home.html', {'blogs': blogs})
 
-
+@login_required
 def create(request):
     if request.method == 'POST':
         form = BlogForm(request.POST)

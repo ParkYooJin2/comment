@@ -19,8 +19,19 @@
         <li class="nav-item" style="position:absolute; top: 10px; right: 50px;">
         <a class="nav-link" href="{% url 'login' %}">Login</a>
       </li>
+      
     </header>
-    <section>{% block content %} {% endblock %}</section>
+    <section>{% block content %}{% endblock %}</section>
+    <h1>Main Page</h1>
+
+      {% if request.user.is_authenticated %}
+      <h1>환영합니다, {{ user.username }}님!</h1>
+
+      <a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                          <form id="logout" method="POST" action="{% url 'logout' %}">
+                              {% csrf_token %} <input type = "hidden" />
+                          </form>
+      {%endif%}
     <footer>
       <p>Copyright ⓒ 2020 덕성여대 멋쟁이사자처럼 All rights reserved.</p>
     </footer>
